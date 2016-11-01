@@ -7,12 +7,15 @@ OFLAG = -o
 .c.o :
 	$(CPP) $(CPPFLAGS) -c $<
 
-PROGS = hello
+PROGS = stack hierarchical
 
 all: $(PROGS)
 
-hello: hello.o 
-	$(CPP) $(OFLAG) hello hello.o
+stack: stack.o 
+	$(CPP) $(OFLAG) stack stack.o -lpthread
+
+hierarchical: hierarchical.o 
+	$(CPP) $(OFLAG) hierarchical hierarchical.o -lpthread
 
 clean:
 	rm -f ${PROGS} *.o
